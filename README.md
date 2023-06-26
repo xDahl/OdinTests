@@ -2,6 +2,21 @@
 
 This rep is just for me to post dumb testing code I've written while learning Odin.
 
+Extra things I've noticed/found/(had to look up because it wasn't stated in the official documentation) in Odin:
+```text
+strings are immutable.
+s : string = "hi"
+s[0] = 0 // Invalid
+
+There is a built-in alias for bytes:
+byte :: u8
+
+extra resources one ought to check out:
+https://github.com/odin-lang/Odin/blob/master/core/builtin/builtin.odin
+https://github.com/odin-lang/examples
+```
+
+
 array_n_maps.odin output:
 ```text
 Dynamic array testing:
