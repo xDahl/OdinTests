@@ -11,6 +11,7 @@ testarray :: proc()
 	println("Dynamic array testing:")
 
 	arr : [dynamic]int
+	defer delete(arr)
 	
 	for i := 0; i < 10; i += 1 {
 		append(&arr, i * 3)
@@ -21,8 +22,6 @@ testarray :: proc()
 		printf("\t%d = %d\n", i, v)
 		i += 1
 	}
-	
-	delete(arr)
 
 
 	// str : [dynamic]string
@@ -30,6 +29,7 @@ testarray :: proc()
 	// Note: Appending more than the capacity will allocate more :)
 	// Capacity is not fixed! It's more for optimizations.
 	str := make([dynamic]string, 0, 2)
+	defer delete(str)
 	
 	append(&str, "this is cool")
 	append(&str, "or something")
@@ -42,8 +42,6 @@ testarray :: proc()
 		printf("\t%d = %2d '%s'\n", i, len(str[i]), str[i])
 	}
 	printf("\tstr: len = %d    cap = %d\n", len(str), cap(str))
-	
-	delete(str)
 }
 
 testmaps :: proc()
@@ -59,11 +57,11 @@ testmaps :: proc()
 		printf("\t\"%s\" = %d\t(exists: %t)\n", s, v, ok)
 	}
 	m := make(map[string]int, 4)
+	defer delete(m)
+
 	intpri(m, "test")
 	m["test"] = 42
 	intpri(m, "test")
-	
-	delete(m)
 	
 	
 	strpri := proc(m : map[string]string, s : string)
@@ -73,11 +71,11 @@ testmaps :: proc()
 	}
 	
 	list := make(map[string]string)
+	defer delete(list)
+	
 	strpri(list, "hello")
 	list["hello"] = "world"
 	strpri(list, "hello")
-	
-	delete(list)
 }
 
 main :: proc()
