@@ -55,6 +55,10 @@ main :: proc()
 	array := [?]int{2, 4, 6, 8, 9, 10}
 
 
+	// NOTE: Iterated values are copies, and cannot be written to.
+	// This means 'v' and 'i' are constant.
+
+
 	for v, i in array {
 		if v & 1 == 1 {
 			break
