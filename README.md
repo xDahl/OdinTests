@@ -101,3 +101,27 @@ Custom iterator, struct: 4 1
 Custom iterator, struct: 6 2
 Custom iterator, struct: 8 3
 ```
+
+swizzles_and_overloading.odin:
+```text
+0 1
+0 123 123
+0 123
+a:
+        1 2 3 4 5
+
+b:
+        2 2 2 2 2
+
+c = a*b:
+        2 4 6 8 10
+
+d = a + a * c:
+        3 10 21 36 55
+
+e = swizzle(a, 4, 3, 2, 1, 0):
+        5 4 3 2 1
+
+f = swizzle(a, 4, 1, 3, 0, 2):
+        5 2 4 1 3
+```
