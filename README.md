@@ -81,3 +81,23 @@ EF BF BD    true    Encode: U+FFFD      ->  Decode: U+FFFD
 F0 90 80 80 true    Encode: U+10000     ->  Decode: U+10000
 F4 8F BF BF true    Encode: U+10FFFF    ->  Decode: U+10FFFF
 ```
+
+custom_iterators.odin:
+```text
+Regular iterator: 2 0
+Regular iterator: 4 1
+Regular iterator: 6 2
+Regular iterator: 8 3
+Custom iterator, value only: 2 0
+Custom iterator, value only: 4 1
+Custom iterator, value only: 6 2
+Custom iterator, value only: 8 3
+Custom iterator, value and index: 2 0
+Custom iterator, value and index: 4 1
+Custom iterator, value and index: 6 2
+Custom iterator, value and index: 8 3
+Custom iterator, struct: 2 0
+Custom iterator, struct: 4 1
+Custom iterator, struct: 6 2
+Custom iterator, struct: 8 3
+```
