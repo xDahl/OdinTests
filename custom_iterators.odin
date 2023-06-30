@@ -85,3 +85,22 @@ main :: proc()
 		fmt.println("Custom iterator, struct:", v, idx)
 	}
 }
+
+/* Output:
+Regular iterator: 2 0
+Regular iterator: 4 1
+Regular iterator: 6 2
+Regular iterator: 8 3
+Custom iterator, value only: 2 0
+Custom iterator, value only: 4 1
+Custom iterator, value only: 6 2
+Custom iterator, value only: 8 3
+Custom iterator, value and index: 2 0
+Custom iterator, value and index: 4 1
+Custom iterator, value and index: 6 2
+Custom iterator, value and index: 8 3
+Custom iterator, struct: 2 0
+Custom iterator, struct: 4 1
+Custom iterator, struct: 6 2
+Custom iterator, struct: 8 3
+*/
