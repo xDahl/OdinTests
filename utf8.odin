@@ -48,7 +48,7 @@ rune_utf8_len :: proc(r : rune) -> int
 /* Strings in Odin are basically slices to an u8 array,
  * but you can't treat it as one, and we don't have C like macros in Odin.
  * So how would one write a procedure to handle both arrays and strings?
- * Well, explicit operator overloading combined with forced inlining
+ * Well, explicit procedure overloading combined with forced inlining
  * would basically produce the same as a C macro without duplicate code.
  * This feels jank as butter, and would not play well if you needed
  * more than one string argument, but this works, and is what Odin
