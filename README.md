@@ -125,3 +125,21 @@ e = swizzle(a, 4, 3, 2, 1, 0):
 f = swizzle(a, 4, 1, 3, 0, 2):
         5 2 4 1 3
 ```
+
+or_else_return.odin:
+```text
+Single return: 0 -> ERROR_NONE_END_OF_PROCEDURE
+Single return: 5 -> ERROR_NONE_END_OF_PROCEDURE
+Single return: 9 -> ERROR_NONE_END_OF_PROCEDURE
+Single return: 15 -> ERROR_BAD
+Single return: 30 -> ERROR_WORSE
+
+Multiple return: 0 -> 0 0 true
+Multiple return: 5 -> 5 50 true
+Multiple return: 9 -> 9 90 true
+Multiple return: 20 -> 0 0 false
+
+'or_else' test, N & K:  10 42
+times_ten(5):  50
+times_ten(0):  -1
+```
