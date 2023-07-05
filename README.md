@@ -143,3 +143,70 @@ Multiple return: 20 -> 0 0 false
 times_ten(5):  50
 times_ten(0):  -1
 ```
+
+bitsets.odin:
+```text
+Basics:
+        b: bit_set[SHORT]{A, C, D, F}
+        SHORT.A is in b
+        SHORT.B is not in b
+        r: bit_set['a'..='z']{}
+        r: bit_set['a'..='z']{97, 100, 102}
+        i: bit_set[97..=122]{}
+        i: bit_set[97..=122]{97, 100, 102}
+
+
+Comps:
+        a: bit_set[SHORT]{B, D, E}
+        b: bit_set[SHORT]{A, B, C, D, E}
+        r: bit_set[SHORT]{B, F}
+
+        a == b false (A is equal to B)
+        a < b true (A is a (strict) subset of B)
+        b > a true (B is a (strict) superset of A)
+        a > b false (A is a (strict) superset of B)
+        b < a false (B is a (strict) subset of A)
+
+        A being a subset of B means that every element in A is in B as well.
+        No order of elements is required for this to be true.
+
+        b == b true (B is equal to B)
+        b < b false (B is a (strict) subset of B)
+        b <= b true (B is a subset of/or equal to B)
+
+        r < b false (R is a (strict) subset of B)
+        False because R contains an element B does not.
+
+        Elements A and B share: bit_set[SHORT]{B, D, E}
+        Elements A and R share: bit_set[SHORT]{B}
+        Elements B and R share: bit_set[SHORT]{B}
+        Elements A and B differences: bit_set[SHORT]{}
+        Elements A and R differences: bit_set[SHORT]{D, E}
+        Elements B and R differences: bit_set[SHORT]{A, C, D, E}
+        '+' in bitsets is the same as '|'
+        '-' in bitsets is the same as '&~'
+        R and B combined (r | b): bit_set[SHORT]{A, B, C, D, E, F}
+        R and B combined (r + b): bit_set[SHORT]{A, B, C, D, E, F}
+        R removed from B (b - r): bit_set[SHORT]{A, C, D, E}
+        R removed from B (b &~ r): bit_set[SHORT]{A, C, D, E}
+
+        like len(...) & cap(...), there's 'card(...)'.
+        A's cardinality (Number of elements): 3
+        B's cardinality (Number of elements): 5
+        R's cardinality (Number of elements): 2
+
+
+Bonus:
+        a: bit_set[SHORT; u8]{B, E}
+        b: bit_set[0..=7; u8]{0, 1, 2, 3, 4, 5, 6, 7}
+        c: bit_set[1..=8; u8]{1, 2, 3, 4, 5, 6, 7, 8}
+        SHORT.B = 2
+        SHORT.E = 16
+        a value: 18
+        b value: 255
+        c value: 255
+
+        bit_set[SHORT] = 8 bits
+        bit_set[SHORT; u16] = 16 bits
+        bit_set[LONG] = 16 bits
+```
