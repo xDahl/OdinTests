@@ -226,3 +226,131 @@ U+24B62  Be  D8 52 DF 62  U+24B62  true
 U+1F600  Le  3D D8 00 DE  U+1F600  true
 U+1F600  Be  D8 3D DE 00  U+1F600  true
 ```
+
+allocator_myarena.odin output:
+```text
+Current Areana data:
+0000:  FF FF FF FF FF FF FF FF
+0008:  FF FF FF FF FF FF FF FF
+0010:  FF FF FF FF FF FF FF FF
+0018:  FF FF FF FF FF FF FF FF
+0020:  FF FF FF FF FF FF FF FF
+0028:  FF FF FF FF FF FF FF FF
+0030:  FF FF FF FF FF FF FF FF
+0038:  FF FF FF FF FF FF FF FF
+
+
+Allocation information:
+        Request: Alloc
+        Size: 32
+        Old size: 0
+        At arena index: NA
+        Last: 0 Index: 0
+Filled up length of array
+Array[0] = 0
+Array[1] = 1
+Array[2] = 2
+Filled up capacity of array
+Array[0] = 0
+Array[1] = 1
+Array[2] = 2
+Array[3] = 3
+Allocation information:
+        Request: Resize
+        Size: 128
+        Old size: 32
+        At arena index: 0
+Resized & appended past old capacity
+Array[0] = 0
+Array[1] = 1
+Array[2] = 2
+Array[3] = 3
+Array[4] = 4
+Allocation information:
+        Request: Free
+        Size: 0
+        Old size: 128
+        At arena index: 0
+
+
+Current Areana data:
+0000:  00 00 00 00 00 00 00 00
+0008:  01 00 00 00 00 00 00 00
+0010:  02 00 00 00 00 00 00 00
+0018:  03 00 00 00 00 00 00 00
+0020:  04 00 00 00 00 00 00 00
+0028:  FF FF FF FF FF FF FF FF
+0030:  FF FF FF FF FF FF FF FF
+0038:  FF FF FF FF FF FF FF FF
+
+
+Allocation information:
+        Request: Alloc
+        Size: 4
+        Old size: 0
+        At arena index: NA
+        Last: 0 Index: 0
+Allocation information:
+        Request: Alloc
+        Size: 8
+        Old size: 0
+        At arena index: NA
+        Last: 0 Index: 4
+Allocation information:
+        Request: Alloc
+        Size: 1
+        Old size: 0
+        At arena index: NA
+        Last: 4 Index: 12
+Allocation information:
+        Request: Free
+        Size: 0
+        Old size: 0
+        At arena index: ---
+Allocation information:
+        Request: Alloc
+        Size: 2
+        Old size: 0
+        At arena index: NA
+        Last: 12 Index: 12
+Allocation information:
+        Request: Free_All
+        Size: 0
+        Old size: 0
+        At arena index: NA
+
+
+Current Areana data:
+0000:  32 32 32 32 64 64 64 64
+0008:  64 64 64 64 16 16 00 00
+0010:  02 00 00 00 00 00 00 00
+0018:  03 00 00 00 00 00 00 00
+0020:  04 00 00 00 00 00 00 00
+0028:  FF FF FF FF FF FF FF FF
+0030:  FF FF FF FF FF FF FF FF
+0038:  FF FF FF FF FF FF FF FF
+
+
+Allocation information:
+        Request: Alloc
+        Size: 52
+        Old size: 0
+        At arena index: NA
+        Last: 0 Index: 0
+Allocation information:
+        Request: Free
+        Size: 0
+        Old size: 0
+        At arena index: 0
+
+
+Current Areana data:
+0000:  61 00 62 00 63 00 64 00
+0008:  65 00 66 00 67 00 68 00
+0010:  69 00 6A 00 6B 00 6C 00
+0018:  6D 00 6E 00 6F 00 70 00
+0020:  71 00 72 00 73 00 74 00
+0028:  75 00 76 00 77 00 78 00
+0030:  79 00 7A 00 FF FF FF FF
+0038:  FF FF FF FF FF FF FF FF
+```
