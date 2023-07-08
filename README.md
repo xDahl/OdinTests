@@ -82,7 +82,7 @@ F0 90 80 80 true    Encode: U+10000     ->  Decode: U+10000
 F4 8F BF BF true    Encode: U+10FFFF    ->  Decode: U+10FFFF
 ```
 
-custom_iterators.odin:
+custom_iterators.odin output:
 ```text
 Regular iterator: 2 0
 Regular iterator: 4 1
@@ -102,7 +102,7 @@ Custom iterator, struct: 6 2
 Custom iterator, struct: 8 3
 ```
 
-swizzles_and_overloading.odin:
+swizzles_and_overloading.odin output:
 ```text
 0 1
 0 123 123
@@ -126,7 +126,7 @@ f = swizzle(a, 4, 1, 3, 0, 2):
         5 2 4 1 3
 ```
 
-or_else_return.odin:
+or_else_return.odin output:
 ```text
 Single return: 0 -> ERROR_NONE_END_OF_PROCEDURE
 Single return: 5 -> ERROR_NONE_END_OF_PROCEDURE
@@ -144,7 +144,7 @@ times_ten(5):  50
 times_ten(0):  -1
 ```
 
-bitsets.odin:
+bitsets.odin output:
 ```text
 Basics:
         b: bit_set[SHORT]{A, C, D, F}
@@ -209,4 +209,20 @@ Bonus:
         bit_set[SHORT] = 8 bits
         bit_set[SHORT; u16] = 16 bits
         bit_set[LONG] = 16 bits
+```
+
+utf16.odin output:
+```text
+U+00041  Le  41 00        U+00041  true
+U+00041  Be  00 41        U+00041  true
+U+020A0  Le  A0 20        U+020A0  true
+U+020A0  Be  20 A0        U+020A0  true
+U+0FFFD  Le  FD FF        U+0FFFD  true
+U+0FFFD  Be  FF FD        U+0FFFD  true
+U+10437  Le  01 D8 37 DC  U+10437  true
+U+10437  Be  D8 01 DC 37  U+10437  true
+U+24B62  Le  52 D8 62 DF  U+24B62  true
+U+24B62  Be  D8 52 DF 62  U+24B62  true
+U+1F600  Le  3D D8 00 DE  U+1F600  true
+U+1F600  Be  D8 3D DE 00  U+1F600  true
 ```
