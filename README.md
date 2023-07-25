@@ -354,3 +354,51 @@ Current Areana data:
 0030:  79 00 7A 00 FF FF FF FF
 0038:  FF FF FF FF FF FF FF FF
 ```
+
+allocator_pool_n_arena.odin output:
+```text
+Pool:    Grew Arena to 16
+Pool:    Grew Arena to 32
+Pool:    Grew Arena to 48
+Pool:    Grew Arena to 64
+Pool:    Pushed free'd node into free-list.
+Pool:    Pushed free'd node into free-list.
+Pool:    Popped node from free-list.
+Pool:    Popped node from free-list.
+Pool:    Grew Arena to 80
+Pool & Arena: Reset/Freed Pool allocator.
+Node vals: 101 102 3 4 5
+-----------
+Pool:    Grew Arena to 16
+Pool:    Grew Arena to 32
+Pool:    Pushed free'd node into free-list.
+Pool:    Pushed free'd node into free-list.
+Arena:   Requested: 20 bytes from pool, got 32 bytes.
+Arena:   Safely freed the Arena (shrunk Pool Arena index).
+Free-List: &free_node{next = 0xA} -> &free_node{next = <nil>}
+Free-List: &free_node{next = <nil>} -> <nil>
+Pool:    Popped node from free-list.
+Pool:    Popped node from free-list.
+Pool:    Grew Arena to 48
+Pool:    Grew Arena to 64
+Pool:    Grew Arena to 80
+Pool & Arena: Reset/Freed Pool allocator.
+-----------
+Pool:    Grew Arena to 16
+Pool:    Grew Arena to 32
+Pool:    Pushed free'd node into free-list.
+Pool:    Pushed free'd node into free-list.
+Arena:   Requested: 20 bytes from pool, got 32 bytes.
+[!] Forcing pool allocator to free arena to free-list.
+Arena:   Freed Arena to pool Free-List, Nodes: 2
+Free-List: &free_node{next = 0xC} -> &free_node{next = 0xB}
+Free-List: &free_node{next = 0xB} -> &free_node{next = 0xA}
+Free-List: &free_node{next = 0xA} -> &free_node{next = <nil>}
+Free-List: &free_node{next = <nil>} -> <nil>
+Pool:    Popped node from free-list.
+Pool:    Popped node from free-list.
+Pool:    Popped node from free-list.
+Pool:    Popped node from free-list.
+Pool:    Grew Arena to 80
+Pool & Arena: Reset/Freed Pool allocator.
+```
